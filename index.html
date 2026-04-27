@@ -455,7 +455,343 @@
                         <span class="text-muted group-open:rotate-180 transition-transform">+</span>
                     </summary>
                     <div class="mt-6 text-charcoal/80 leading-relaxed font-light">
-                        [Article Content for Google AI Studio will go here. You can insert your HTML formatted text.]
+                        <style>
+  .playbook-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .playbook-container h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.2em;
+    color: #0a0a0a;
+    text-align: left;
+  }
+  .playbook-container h2 {
+    font-size: 1.6em;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    color: #0a0a0a;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 0.3em;
+    text-align: left;
+  }
+  .playbook-container h3 {
+    font-size: 1.2em;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+    color: #222;
+    text-align: left;
+  }
+  .playbook-container .subtitle {
+    font-size: 1.15em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-style: italic;
+    text-align: left;
+  }
+  .playbook-container .phase-label {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 1.5em;
+  }
+  .playbook-container .scenario-box,
+  .playbook-container .role-box,
+  .playbook-container .step-box,
+  .playbook-container .result-box {
+    background: #f7f7f5;
+    border-left: 4px solid #1a1a1a;
+    padding: 18px 22px;
+    margin: 18px 0;
+    border-radius: 4px;
+  }
+  .playbook-container .agents-grid,
+  .playbook-container .audit-grid,
+  .playbook-container .steps-grid {
+    display: grid;
+    gap: 18px;
+    margin: 20px 0;
+  }
+  .playbook-container .agents-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .playbook-container .audit-grid  { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .playbook-container .steps-grid  { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .playbook-container .agent-card,
+  .playbook-container .audit-card,
+  .playbook-container .step-card {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .playbook-container .agent-number,
+  .playbook-container .step-number {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .playbook-container .agent-card h4,
+  .playbook-container .step-card h4,
+  .playbook-container .audit-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    color: #0a0a0a;
+  }
+  .playbook-container .metrics-row {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .playbook-container .metric {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    padding: 20px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 6px;
+  }
+  .playbook-container .metric-value {
+    font-size: 2.4em;
+    font-weight: 700;
+    display: block;
+  }
+  .playbook-container .metric-label {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+  .playbook-container .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .playbook-container .comparison-col {
+    padding: 20px;
+    border-radius: 6px;
+  }
+  .playbook-container .old-model {
+    background: #fdf2f2;
+    border: 1px solid #f5c6c6;
+  }
+  .playbook-container .new-model {
+    background: #f0f9f4;
+    border: 1px solid #b8e0c4;
+  }
+  .playbook-container .comparison-col h4 {
+    margin-top: 0;
+    text-align: left;
+  }
+  .playbook-container .comparison-col ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+  }
+  .playbook-container .comparison-col li { padding: 6px 0; }
+  .playbook-container .pro-tip {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 16px 0;
+    font-size: 0.97em;
+  }
+  .playbook-container .cta {
+    margin-top: 2.5em;
+    padding: 24px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.05em;
+  }
+  @media (max-width: 600px) {
+    .playbook-container .comparison { grid-template-columns: 1fr; }
+    .playbook-container { padding: 24px 16px; }
+  }
+</style>
+
+<div class="playbook-container">
+
+  <p style="font-size: 0.85em; color: #888; letter-spacing: 0.15em; text-transform: uppercase; margin: 0;">Implementation Guide</p>
+  <h1>Building Your Success Agents in Google AI Studio</h1>
+  <p class="subtitle">A Step-by-Step Guide to Implementing the Agentic CS Playbook</p>
+
+  <p>So you've read the playbook. The vision is clear! Stop drowning in tab-switching and start actually driving outcomes. Now let's make it real. Here's exactly how to bring those three Success Agents to life using Google AI Studio.</p>
+
+  <span class="phase-label">BEFORE YOU START</span>
+  <h2>Get Your House in Order</h2>
+  <p>Before touching a single prompt, you need two things locked down:</p>
+
+  <div class="audit-grid">
+    <div class="audit-card">
+      <h4>A Google AI Studio Account</h4>
+      <p style="margin: 0;">You'll need a Google account with access to <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a>. It's free to start. No excuses!</p>
+    </div>
+    <div class="audit-card">
+      <h4>A Clear Picture of Your Data Sources</h4>
+      <p style="margin: 0;">Where does your usage telemetry live? Salesforce? Jira? PowerBI? A homegrown dashboard? Write this down before you build a single agent. The agents are only as good as the data you feed them. Garbage in, garbage out.</p>
+    </div>
+  </div>
+
+  <span class="phase-label">STEP 1</span>
+  <h2>Set Up Your Google AI Studio Workspace</h2>
+  <p>Head to <strong>aistudio.google.com</strong> and sign in. You'll land on the main dashboard. From here, click <strong>"Create new prompt"</strong>. This is your workbench.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">MODEL</div>
+      <h4>Select Gemini 1.5 Pro</h4>
+      <p style="margin: 0;">This matters. The longer context window means it can hold an entire customer's history in a single session without losing the thread.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">SETTINGS</div>
+      <h4>Set Temperature to 0.2–0.3</h4>
+      <p style="margin: 0;">You want these agents precise and consistent, not creative and unpredictable. Low temperature keeps outputs tight and reliable.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">MINDSET</div>
+      <h4>Think of It as a Brain</h4>
+      <p style="margin: 0;">Your System Prompt defines the agent's entire personality and job description. What you write here determines everything that follows.</p>
+    </div>
+  </div>
+
+  <span class="phase-label">STEP 2</span>
+  <h2>Build Agent #1 — The Health Monitor</h2>
+  <p>This is your early warning system. Its entire job is to look at usage data and tell you <em>exactly</em> what's breaking down, not just that something is wrong.</p>
+
+  <div class="scenario-box">
+    <p style="margin: 0 0 6px 0;"><strong>System Prompt to Use:</strong></p>
+    <p style="margin: 0; font-style: italic;">"You are a Customer Health Monitor for a SaaS infrastructure company. You will be given raw telemetry data including API call volumes, feature usage logs, and session data for a specific account. Your job is to: (1) identify any metric that has dropped more than 15% over a 7-day rolling window, (2) pinpoint the specific feature or endpoint associated with the drop, and (3) output a plain-English Slack alert with a severity level (Low / Medium / Critical) and a recommended next action for the CSM."</p>
+  </div>
+
+  <p>In the User Input section, paste a sample data dump from your telemetry system. Even a CSV snippet works fine to start. Hit <strong>Run</strong> and watch it go. Tweak the prompt until the output reads like something you'd actually want landing in your Slack channel at 7am.</p>
+
+  <div class="pro-tip">
+    <strong>Pro tip:</strong> Use AI Studio's <strong>"Save as"</strong> feature to save this as a named prompt — call it <code>Health_Monitor_v1</code>. You'll be iterating on these, and version naming will save your sanity later.
+  </div>
+
+  <span class="phase-label">STEP 3</span>
+  <h2>Build Agent #2 — The Technical Architect</h2>
+  <p>This one's your on-call engineer that never sleeps and never says "let me get back to you." It needs to synthesize support tickets, release notes, and documentation into a clean, human-readable summary. In a new prompt window, use the same model.</p>
+
+  <div class="scenario-box">
+    <p style="margin: 0 0 6px 0;"><strong>System Prompt to Use:</strong></p>
+    <p style="margin: 0; font-style: italic;">"You are a Senior Technical Architect supporting a Customer Success team. When given a set of Jira tickets, support cases, and API documentation, your job is to: (1) identify the root cause of the customer's technical issue, (2) cross-reference it with known bugs or recent release changes, (3) write a clear, jargon-free summary of the problem and the fix — suitable for a CSM to read before a customer call. Do not use internal ticket IDs in your summary. Translate everything into business language."</p>
+  </div>
+
+  <p>Feed it real inputs — paste in 3–4 recent technical support tickets from a customer account, plus any relevant release notes. You'll quickly see how powerful this gets when it connects dots that would take you 45 minutes to connect manually.</p>
+
+  <div class="pro-tip">
+    <strong>Pro tip:</strong> If you have access to Google AI Studio's <strong>grounding feature</strong>, this is where it shines. Connect it to your internal knowledge base or documentation so it's pulling from <em>your</em> actual product docs, not general training knowledge.
+  </div>
+
+  <span class="phase-label">STEP 4</span>
+  <h2>Build Agent #3 — The Operations Lead</h2>
+  <p>This is the agent that does the "unsexy but critical" work: drafting the email, creating the Salesforce risk entry, keeping the CRM honest. It's the difference between a follow-up landing in 4 minutes vs. 4 days.</p>
+
+  <div class="scenario-box">
+    <p style="margin: 0 0 6px 0;"><strong>System Prompt to Use:</strong></p>
+    <p style="margin: 0; font-style: italic;">"You are a Customer Success Operations specialist. You will be given a summary of a customer issue, the identified root cause, and the proposed resolution. Your job is to: (1) draft a professional but warm email to the customer's executive sponsor explaining what happened, why it happened, and what's been done — do not use technical jargon, (2) write a short CRM risk entry in the format: [Account Name] | Risk Type | Root Cause | Status | Next Action, and (3) suggest a follow-up date based on the severity of the issue."</p>
+  </div>
+
+  <div class="pro-tip">
+    <strong>Pro tip:</strong> This agent benefits hugely from <strong>few-shot examples</strong>. Before running it on a real case, give it 1–2 example inputs and ideal outputs directly in the prompt. It calibrates the tone dramatically and saves you a lot of back-and-forth editing.
+  </div>
+
+  <span class="phase-label">STEP 5</span>
+  <h2>Chain Them Together with a "Conductor" Prompt</h2>
+  <p>Here's where it gets super exciting! Instead of running three separate prompts manually, you can build a <strong>master orchestration prompt</strong>. A Conductor that takes the raw trigger and routes work to each agent in sequence.</p>
+
+  <div class="scenario-box">
+    <p style="margin: 0 0 6px 0;"><strong>Conductor System Prompt:</strong></p>
+    <p style="margin: 0; font-style: italic;">"You are a Customer Success Orchestrator. When given an account alert, you will run through three stages in sequence: First, analyze the health data as a Health Monitor. Second, investigate the technical cause as a Technical Architect. Third, draft the customer communication and CRM entry as an Operations Lead. Output each stage clearly labeled. At the end, produce a single 'CSM Action Summary' with only what the human needs to review and approve."</p>
+  </div>
+
+  <p>This is your <strong>Phase 3 Execution Flow</strong> from the playbook fully automated in a single run. The CSM gets one clean output, reviews it, adds the human touch (like that note about the CTO's upcoming vacation or daughter's softball game), then hits send.</p>
+
+  <div class="metrics-row">
+    <div class="metric">
+      <span class="metric-value">4 min</span>
+      <span class="metric-label">Total CSM time with the Conductor</span>
+    </div>
+    <div class="metric">
+      <span class="metric-value">2 hrs</span>
+      <span class="metric-label">Manual investigation time saved</span>
+    </div>
+  </div>
+
+  <span class="phase-label">STEP 6</span>
+  <h2>Connect It to the Real World via API</h2>
+  <p>AI Studio isn't just a playground, it's also a launchpad. Once your prompts are dialed in, it's time to wire them into your actual workflow.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">EXPORT</div>
+      <h4>Get the Code</h4>
+      <p style="margin: 0;">Click <strong>"Get code"</strong> in AI Studio to export your prompt as a Python or JavaScript snippet. This is your agent, packaged and ready to deploy.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">CONNECT</div>
+      <h4>Integrate Your Data Pipeline</h4>
+      <p style="margin: 0;">Use the Gemini API to connect to your live data, whether that's a Zapier webhook, Google Apps Script, or a proper backend integration with your telemetry system.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">AUTOMATE</div>
+      <h4>Set Up a Trigger</h4>
+      <p style="margin: 0;">Configure a trigger (ex: when telemetry drops below threshold in your data warehouse) that fires the Health Monitor automatically. This is what makes it run while you sleep.</p>
+    </div>
+  </div>
+
+  <span class="phase-label">STEP 7</span>
+  <h2>Measure What Actually Matters</h2>
+  <p>Go back to Section 4 of the playbook. Forget emails sent or meetings attended. Start tracking outcome metrics from day one so you can make the ROI visible to leadership. Because when they see that one CSM is now handling what used to take three, the budget for expanding this gets a lot easier to unlock.</p>
+
+  <div class="comparison">
+    <div class="comparison-col old-model">
+      <h4>Stop Tracking</h4>
+      <ul>
+        <li>✗ Emails sent</li>
+        <li>✗ Tickets closed</li>
+        <li>✗ Headcount-to-Revenue ratio</li>
+        <li>✗ Manual investigation hours</li>
+      </ul>
+    </div>
+    <div class="comparison-col new-model">
+      <h4>Start Tracking</h4>
+      <ul>
+        <li>✓ Time-to-first-response on health alerts</li>
+        <li>✓ CSM time spent per account (target: &lt;10 min)</li>
+        <li>✓ Revenue-per-CSM growth (quarterly)</li>
+        <li>✓ Agents built &amp; deployed</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The Honest Truth</h3>
+  <div class="result-box">
+    <p style="margin: 0;">The technology here isn't the hard part. Google AI Studio is genuinely approachable. You don't need to be an engineer to build v1 of these agents. The hard part is <strong>discipline in your prompts</strong> and <strong>honesty about your data quality</strong>. If your Salesforce is a mess, the Operations Lead will draft messy emails. Fix the inputs first. Start with the Health Monitor. Get one agent working beautifully. Then layer in the others. The playbook calls it Phase 1 for a reason — you can't automate what you haven't mapped yet.</p>
+  </div>
+
+  <div class="cta">
+    <strong>Ready to build your Success Agents?</strong> Start with the Health Monitor. One agent, one clean output, one less hour of tab-switching. The rest follows naturally.
+  </div>
+
+</div>
                     </div>
                 </details>
                 <details class="group border-b border-muted/20 pb-6">

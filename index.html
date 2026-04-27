@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -31,119 +31,313 @@
         ::-webkit-scrollbar-track { background: #ecebeb; }
         ::-webkit-scrollbar-thumb { background: #787878; }
         
-        /* Parallax utility class */
+        /* Parallax & Custom utilities */
         .parallax-hover:hover { transform: translate3d(0, -10px, 0); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="bg-off-white text-charcoal font-sans selection:bg-charcoal selection:text-off-white antialiased">
+<body class="bg-off-white text-charcoal font-sans selection:bg-charcoal selection:text-off-white antialiased flex flex-col min-h-screen">
 
     <nav class="p-6 md:p-12 flex justify-between items-center tracking-widest text-sm uppercase">
-        <div class="font-medium">JM.</div>
+        <button onclick="showView('home')" class="font-medium hover:italic transition-all tracking-widest">JM.</button>
         <div class="text-muted hover:text-charcoal transition-colors cursor-pointer">Menu</div>
     </nav>
 
-    <header class="min-h-[70vh] flex flex-col justify-center items-center px-4 relative pb-16">
-        
-        <div class="mb-10 w-32 h-44 md:w-40 md:h-56 overflow-hidden rounded-t-full rounded-b-2xl border border-muted/20 shadow-sm transition-transform duration-700 hover:-translate-y-2 cursor-pointer">
-            <img src="assets/headshot%201.jpg" alt="Julio Marquez - Customer Success Leader" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-        </div>
+    <main class="relative flex-grow">
 
-        <h1 class="font-serif text-5xl md:text-8xl lg:text-[7rem] leading-none text-center tracking-tight text-charcoal max-w-6xl mx-auto">
-            Julio Marquez
-        </h1>
-        <div class="mt-8 flex items-center gap-4">
-            <div class="w-12 h-[1px] bg-muted"></div>
-            <h2 class="font-sans text-muted tracking-[0.3em] uppercase text-xs md:text-sm">Customer Success Leader</h2>
-            <div class="w-12 h-[1px] bg-muted"></div>
-        </div>
-    </header>
-
-    <section class="py-24 px-6 md:px-12 max-w-5xl mx-auto overflow-hidden">
-        <div class="text-2xl md:text-4xl lg:text-5xl font-serif leading-tight">
-            <div class="transform transition-transform duration-700 hover:translate-x-4 mb-4">
-                Proactive Growth Leadership.
-            </div>
-            <div class="transform transition-transform duration-700 hover:translate-x-8 mb-4 text-muted pl-8 md:pl-16">
-                Shifting focus from reactive support
-            </div>
-            <div class="transform transition-transform duration-700 hover:translate-x-12 mb-4 pl-16 md:pl-32">
-                to strategic engineering outcomes.
-            </div>
-            <div class="transform transition-transform duration-700 hover:translate-x-16 mb-4 text-muted pl-24 md:pl-48">
-                Empowering technical teams
-            </div>
-            <div class="transform transition-transform duration-700 hover:translate-x-20 pl-32 md:pl-64">
-                with workflow automation and actionable AI.
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer">
-                <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
-                <div class="absolute bottom-6 left-6">
-                    <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">01</p>
-                    <p class="text-sm tracking-widest uppercase text-muted mt-1">Fluid Operations</p>
-                </div>
-            </div>
-            <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer md:mt-16">
-                <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
-                <div class="absolute bottom-6 left-6">
-                    <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">02</p>
-                    <p class="text-sm tracking-widest uppercase text-muted mt-1">Agentic Workflows</p>
-                </div>
-            </div>
-            <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer md:mt-32">
-                <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
-                <div class="absolute bottom-6 left-6">
-                    <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">03</p>
-                    <p class="text-sm tracking-widest uppercase text-muted mt-1">System Architecture</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 px-6 md:px-12 max-w-6xl mx-auto">
-        <div class="w-full h-[1px] bg-muted/30 mb-16"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-24 gap-x-16">
+        <div id="view-home" class="page-view transition-all duration-700 ease-out opacity-100 translate-y-0">
             
-            <div class="group cursor-pointer">
-                <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">01 — AI Implementation</p>
-                <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300">Innovation</h3>
-                <p class="text-charcoal/80 leading-relaxed font-light text-lg">
-                    Certified in advanced AI methodologies to architect smart solutions for account management and automated renewals. Designing agentic workflows that reduce administrative overhead and scale operational capacity.
-                </p>
-            </div>
+            <header class="min-h-[70vh] flex flex-col justify-center items-center px-4 relative pb-16">
+                <div class="mb-10 w-32 h-44 md:w-40 md:h-56 overflow-hidden rounded-t-full rounded-b-2xl border border-muted/20 shadow-sm transition-transform duration-700 hover:-translate-y-2 cursor-pointer">
+                    <img src="assets/headshot%201.jpg" alt="Julio Marquez - Customer Success Leader" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
 
-            <div class="group cursor-pointer">
-                <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">02 — SaaS Leadership</p>
-                <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300">Experience</h3>
-                <p class="text-charcoal/80 leading-relaxed font-light text-lg">
-                    Leading high-performing customer success engineering teams through complex technical consulting lifecycles. Driving enterprise-grade adoption and value realization within sophisticated software ecosystems.
-                </p>
-            </div>
+                <h1 class="font-serif text-5xl md:text-8xl lg:text-[7rem] leading-none text-center tracking-tight text-charcoal max-w-6xl mx-auto">
+                    Julio Marquez
+                </h1>
+                <div class="mt-8 flex items-center gap-4">
+                    <div class="w-12 h-[1px] bg-muted"></div>
+                    <h2 class="font-sans text-muted tracking-[0.3em] uppercase text-xs md:text-sm text-center">Customer Success Leader</h2>
+                    <div class="w-12 h-[1px] bg-muted"></div>
+                </div>
+            </header>
 
-            <div class="group cursor-pointer">
-                <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">03 — Strategic Frameworks</p>
-                <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300">Playbooks</h3>
-                <p class="text-charcoal/80 leading-relaxed font-light text-lg">
-                    Utilizing the "Five Whys" diagnostic to formulate robust 30-60-90 day executive plans. Developing scalable playbooks for independent consulting practices and organizational transformations.
-                </p>
-            </div>
+            <section class="py-24 px-6 md:px-12 max-w-5xl mx-auto overflow-hidden">
+                <div class="text-2xl md:text-4xl lg:text-5xl font-serif leading-tight">
+                    <div class="transform transition-transform duration-700 hover:translate-x-4 mb-4">
+                        Proactive Growth Leadership.
+                    </div>
+                    <div class="transform transition-transform duration-700 hover:translate-x-8 mb-4 text-muted pl-8 md:pl-16">
+                        Shifting focus from reactive support
+                    </div>
+                    <div class="transform transition-transform duration-700 hover:translate-x-12 mb-4 pl-16 md:pl-32">
+                        to strategic business outcomes.
+                    </div>
+                    <div class="transform transition-transform duration-700 hover:translate-x-16 mb-4 text-muted pl-24 md:pl-48">
+                        Empowering Customer Success teams
+                    </div>
+                    <div class="transform transition-transform duration-700 hover:translate-x-20 pl-32 md:pl-64">
+                        with workflow automation and actionable AI.
+                    </div>
+                </div>
+            </section>
 
-            <div class="group cursor-pointer">
-                <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">04 — Thought Leadership</p>
-                <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300">Articles</h3>
-                <p class="text-charcoal/80 leading-relaxed font-light text-lg">
-                    High-authority perspectives on AI economics, team coaching, and the evolution of the customer success discipline. Crafting strategies to elevate leadership narratives across professional networks.
-                </p>
-            </div>
+            <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer">
+                        <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">01</p>
+                            <p class="text-sm tracking-widest uppercase text-muted mt-1">Career Development</p>
+                        </div>
+                    </div>
+                    <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer md:mt-16">
+                        <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">02</p>
+                            <p class="text-sm tracking-widest uppercase text-muted mt-1">Agentic Workflows</p>
+                        </div>
+                    </div>
+                    <div class="aspect-[3/4] bg-muted/20 relative overflow-hidden group parallax-hover transition-transform duration-500 ease-out cursor-pointer md:mt-32">
+                        <div class="absolute inset-0 bg-charcoal/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <p class="text-xs tracking-[0.2em] uppercase text-charcoal font-medium">03</p>
+                            <p class="text-sm tracking-widest uppercase text-muted mt-1">Operational Efficiency</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <section class="py-32 px-6 md:px-12 max-w-6xl mx-auto">
+                <div class="w-full h-[1px] bg-muted/30 mb-16"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-24 gap-x-16">
+                    
+                    <div onclick="showView('innovation')" class="group cursor-pointer">
+                        <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">01 — AI Implementation</p>
+                        <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300 flex items-center justify-between">
+                            Innovation <span class="text-sm opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
+                        </h3>
+                        <p class="text-charcoal/80 leading-relaxed font-light text-lg">
+                            Designing AI-driven workflows specifically built to automate the tedious tasks and streamline account operations. My goal is simple: eliminate the administrative overhead that slows people down, allowing the business to scale without losing its personal touch.
+                        </p>
+                    </div>
+
+                    <div onclick="showView('experience')" class="group cursor-pointer">
+                        <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">02 — SaaS Leadership</p>
+                        <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300 flex items-center justify-between">
+                            Experience <span class="text-sm opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
+                        </h3>
+                        <p class="text-charcoal/80 leading-relaxed font-light text-lg">
+                           I manage engineering teams that thrive at the intersection of technical consulting and customer success. Whether it's navigating a messy implementation or driving long-term adoption, I’m passionate about helping enterprise partners win within complex tech ecosystems.
+                        </p>
+                    </div>
+
+                    <div onclick="showView('playbooks')" class="group cursor-pointer">
+                        <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">03 — Strategic Frameworks</p>
+                        <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300 flex items-center justify-between">
+                            Playbooks <span class="text-sm opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
+                        </h3>
+                        <p class="text-charcoal/80 leading-relaxed font-light text-lg">
+                            I’m a big believer that you can’t fix what you don’t deeply understand. I use the 'Five Whys' to get to the heart of an organization's challenges before mapping out a clear execution plan. From there, it’s all about scalability - building the playbooks that turn a one-time transformation into a lasting success.
+                        </p>
+                    </div>
+
+                    <div onclick="showView('articles')" class="group cursor-pointer">
+                        <p class="text-xs tracking-[0.2em] uppercase text-muted mb-4">04 — Thought Leadership</p>
+                        <h3 class="font-serif text-3xl md:text-4xl mb-6 group-hover:italic transition-all duration-300 flex items-center justify-between">
+                            Articles <span class="text-sm opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
+                        </h3>
+                        <p class="text-charcoal/80 leading-relaxed font-light text-lg">
+                            Let’s talk about where the industry is headed, how AI is reshaping it, and what that means for the people on the ground. I’m passionate about coaching teams through the changing landscape of Customer Success and helping professionals find an authentic voice that actually resonates with their customers.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
         </div>
-    </section>
 
-    <footer class="bg-charcoal text-off-white py-24 px-6 md:px-12 mt-20 rounded-t-[2.5rem]">
+        <div id="view-innovation" class="page-view hidden opacity-0 translate-y-4 transition-all duration-700 ease-out px-6 md:px-12 py-24 max-w-4xl mx-auto">
+            <h2 class="font-serif text-5xl mb-16 tracking-tight">Innovation</h2>
+            <div class="space-y-8">
+                <details class="group border-b border-muted/20 pb-6">
+                    <summary class="list-none cursor-pointer flex justify-between items-center font-serif text-2xl hover:italic transition-all">
+                        Agentic CS Playbook
+                        <span class="text-muted group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <div class="mt-6 text-charcoal/80 leading-relaxed font-light">
+                        [Article Content for Agentic CS Playbook will go here. You can insert your HTML formatted text.]
+                    </div>
+                </details>
+                <details class="group border-b border-muted/20 pb-6">
+                    <summary class="list-none cursor-pointer flex justify-between items-center font-serif text-2xl hover:italic transition-all">
+                        Google AI Studio Documentation
+                        <span class="text-muted group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <div class="mt-6 text-charcoal/80 leading-relaxed font-light">
+                        [Article Content for Google AI Studio will go here. You can insert your HTML formatted text.]
+                    </div>
+                </details>
+                <details class="group border-b border-muted/20 pb-6">
+                    <summary class="list-none cursor-pointer flex justify-between items-center font-serif text-2xl hover:italic transition-all">
+                        Outcomes-Based Success
+                        <span class="text-muted group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <div class="mt-6 text-charcoal/80 leading-relaxed font-light">
+                        [Article Content for Outcomes-Based Success will go here. You can insert your HTML formatted text.]
+                    </div>
+                </details>
+            </div>
+            <button onclick="showView('home')" class="mt-16 text-xs tracking-widest uppercase text-muted hover:text-charcoal transition-colors">← Back to Index</button>
+        </div>
+
+        <div id="view-experience" class="page-view hidden opacity-0 translate-y-4 transition-all duration-700 ease-out px-6 md:px-12 py-24 max-w-6xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12 border-b border-muted/20 pb-16">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-6xl mb-4 tracking-tight">Julio Marquez</h2>
+                    <p class="font-sans text-muted tracking-[0.3em] uppercase text-xs mb-8">Denver, CO | Customer Success Executive</p>
+                    <p class="font-light text-xl leading-relaxed text-charcoal/90 italic">
+                        "Strategic and visionary leader driving high-velocity organizational growth and operational excellence. Expert at architecting revenue engines and churn mitigation strategies."
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4 text-right items-end">
+                    <a href="mailto:julio.l.marquez1@gmail.com" class="text-sm tracking-widest uppercase hover:italic">julio.l.marquez1@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/julio-marquez-174522a7/" target="_blank" rel="noopener noreferrer" class="text-sm tracking-widest uppercase hover:italic">LinkedIn</a>
+                    <a href="assets/Julio%20Marquez%20-%20Resume.pdf" download class="mt-4 border border-charcoal px-8 py-3 text-xs uppercase tracking-widest hover:bg-charcoal hover:text-off-white transition-all">Download Portfolio PDF</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <aside class="lg:col-span-4 space-y-16">
+                    <section>
+                        <h4 class="font-serif text-sm tracking-[0.2em] uppercase text-muted mb-8 border-b border-muted/10 pb-2">Professional Skills</h4>
+                        <div class="space-y-8">
+                            <div>
+                                <p class="text-xs tracking-widest uppercase text-charcoal font-bold mb-3">Strategy</p>
+                                <p class="text-sm leading-relaxed text-muted uppercase tracking-wide">Customer-Centric Strategy, Revenue Growth & Retention, Scalable CS Processes, Churn Forecasting</p>
+                            </div>
+                            <div>
+                                <p class="text-xs tracking-widest uppercase text-charcoal font-bold mb-3">Leadership</p>
+                                <p class="text-sm leading-relaxed text-muted uppercase tracking-wide">Professional Development, Change Management, Cross-Functional Collaboration, Executive Presence</p>
+                            </div>
+                            <div>
+                                <p class="text-xs tracking-widest uppercase text-charcoal font-bold mb-3">Operational Proficiency</p>
+                                <p class="text-sm leading-relaxed text-muted uppercase tracking-wide">Totango, Salesforce, Power BI, Agile Methodology, Lean Six Sigma, Google Gemini Enterprise, MS Copilot</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h4 class="font-serif text-sm tracking-[0.2em] uppercase text-muted mb-8 border-b border-muted/10 pb-2">Accreditation</h4>
+                        <ul class="space-y-6 text-sm">
+                            <li class="font-light"><span class="block font-bold uppercase tracking-tighter text-[10px] text-muted mb-1">Academic</span> Metropolitan State University of Denver | Coursework in Mathematics</li>
+                            <li class="font-light"><span class="block font-bold uppercase tracking-tighter text-[10px] text-muted mb-1">AI & Tech</span> Google AI Professional & Generative AI Leader</li>
+                            <li class="font-light"><span class="block font-bold uppercase tracking-tighter text-[10px] text-muted mb-1">Leadership</span> Certified CS Manager (CCSM) Level 2 & Agile Product Owner</li>
+                            <li class="font-light"><span class="block font-bold uppercase tracking-tighter text-[10px] text-muted mb-1">Efficiency</span> Lean Six Sigma Yellow Belt Certification</li>
+                        </ul>
+                    </section>
+                </aside>
+
+                <main class="lg:col-span-8 space-y-20">
+                    <div class="group">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="font-serif text-3xl group-hover:italic transition-all">Dynatrace</h3>
+                            <span class="text-xs tracking-widest uppercase text-muted">2022 — Present</span>
+                        </div>
+                        <p class="text-xs tracking-widest uppercase text-muted mb-6">Manager, Customer Success Engineering</p>
+                        <ul class="space-y-4 font-light text-charcoal/80 leading-relaxed border-l border-muted/20 pl-6 list-disc list-inside marker:text-muted/50">
+                            <li>Architected a proactive CS engagement model driving a 103% net expansion rate year-over-year.</li>
+                            <li>Engineered a 50% reduction in Customer Success Engineer ramp-up time.</li>
+                            <li>Directed cross-functional license optimization resulting in a 5.5% QoQ utilization increase.</li>
+                            <li>Leveraged Totango and Power BI for data-backed executive decision-making.</li>
+                            <li>Orchestrated a transformation from support-focused models to high-growth engines.</li>
+                        </ul>
+                    </div>
+
+                    <div class="group">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="font-serif text-3xl group-hover:italic transition-all">Colorado Access</h3>
+                            <span class="text-xs tracking-widest uppercase text-muted">2021 — 2022</span>
+                        </div>
+                        <p class="text-xs tracking-widest uppercase text-muted mb-6">Application Product Manager</p>
+                        <ul class="space-y-4 font-light text-charcoal/80 leading-relaxed border-l border-muted/20 pl-6 list-disc list-inside marker:text-muted/50">
+                            <li>Led cross-functional teams to launch features strictly aligned with stakeholder ROI.</li>
+                            <li>Bridged gaps between Product and CS to mitigate user friction and ensure adoption.</li>
+                            <li>Implemented data-driven prioritization resulting in measurable user satisfaction increases.</li>
+                        </ul>
+                    </div>
+
+                    <div class="group">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="font-serif text-3xl group-hover:italic transition-all">Snapdocs</h3>
+                            <span class="text-xs tracking-widest uppercase text-muted">2020 — 2021</span>
+                        </div>
+                        <p class="text-xs tracking-widest uppercase text-muted mb-6">Operations Supervisor, Customer Onboarding</p>
+                        <ul class="space-y-4 font-light text-charcoal/80 leading-relaxed border-l border-muted/20 pl-6 list-disc list-inside marker:text-muted/50">
+                            <li>Launched the New Customer Onboarding division, building foundational workflows for rapid scale.</li>
+                            <li>Executed a training curriculum that significantly elevated initial client engagement.</li>
+                            <li>Integrated onboarding into existing systems to maximize operational efficiency.</li>
+                        </ul>
+                    </div>
+
+                    <div class="group">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="font-serif text-3xl group-hover:italic transition-all">Vertafore</h3>
+                            <span class="text-xs tracking-widest uppercase text-muted">2017 — 2020</span>
+                        </div>
+                        <p class="text-xs tracking-widest uppercase text-muted mb-6">Manager, Customer Support</p>
+                        <ul class="space-y-4 font-light text-charcoal/80 leading-relaxed border-l border-muted/20 pl-6 list-disc list-inside marker:text-muted/50">
+                            <li>Led a premier support team to a 92% Customer Satisfaction (CSAT) rate.</li>
+                            <li>Reduced support ticket volume by addressing systemic customer pain points.</li>
+                            <li>Boosted first-call resolution rates through comprehensive technical training programs.</li>
+                        </ul>
+                    </div>
+                </main>
+            </div>
+            
+            <div class="mt-32 pt-16 border-t border-muted/20 flex justify-between items-center">
+                <button onclick="showView('home')" class="text-xs tracking-widest uppercase text-muted hover:text-charcoal transition-colors">← Back to Index</button>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-xs tracking-widest uppercase text-muted hover:text-charcoal transition-colors">Scroll to Top ↑</button>
+            </div>
+        </div>
+
+        <div id="view-playbooks" class="page-view hidden opacity-0 translate-y-4 transition-all duration-700 ease-out px-6 md:px-12 py-24 max-w-4xl mx-auto">
+            <h2 class="font-serif text-5xl mb-16 tracking-tight">Strategic Frameworks</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="assets/90-days.pdf" target="_blank" class="group flex justify-between items-center py-8 border-b border-muted/20">
+                    <span class="font-serif text-3xl group-hover:italic transition-all">The First 90-Days</span>
+                    <span class="text-xs tracking-widest uppercase text-muted group-hover:text-charcoal transition-colors">View Playbook ↗</span>
+                </a>
+                <a href="assets/post-mortem.pdf" target="_blank" class="group flex justify-between items-center py-8 border-b border-muted/20">
+                    <span class="font-serif text-3xl group-hover:italic transition-all">Churn Post-Mortem Case Study</span>
+                    <span class="text-xs tracking-widest uppercase text-muted group-hover:text-charcoal transition-colors">View Playbook ↗</span>
+                </a>
+                <a href="assets/outcome.pdf" target="_blank" class="group flex justify-between items-center py-8 border-b border-muted/20">
+                    <span class="font-serif text-3xl group-hover:italic transition-all">Activity vs Outcome</span>
+                    <span class="text-xs tracking-widest uppercase text-muted group-hover:text-charcoal transition-colors">View Playbook ↗</span>
+                </a>
+            </div>
+            <button onclick="showView('home')" class="mt-16 text-xs tracking-widest uppercase text-muted hover:text-charcoal transition-colors">← Back to Index</button>
+        </div>
+
+        <div id="view-articles" class="page-view hidden opacity-0 translate-y-4 transition-all duration-700 ease-out px-6 md:px-12 py-24 max-w-5xl mx-auto">
+            <h2 class="font-serif text-5xl mb-16 tracking-tight">Thought Leadership</h2>
+            <div class="space-y-24">
+                <article class="max-w-2xl">
+                    <p class="text-xs tracking-widest uppercase text-muted mb-4">April 2026 — AI Economics</p>
+                    <h3 class="font-serif text-3xl mb-6 hover:italic cursor-pointer transition-all">The Rise of Agentic Workflows in SaaS</h3>
+                    <p class="font-light leading-relaxed text-charcoal/80 mb-6">Current trends suggest that the 'Reactive Manager' is becoming a bottleneck. Here is why outcomes-based engineering is the only way forward...</p>
+                    <a href="#" class="text-xs tracking-widest uppercase border-b border-charcoal/20 pb-1 hover:border-charcoal transition-all">Read Narrative</a>
+                </article>
+                </div>
+            <button onclick="showView('home')" class="mt-24 text-xs tracking-widest uppercase text-muted hover:text-charcoal transition-colors">← Back to Index</button>
+        </div>
+
+    </main>
+
+    <footer class="bg-charcoal text-off-white py-24 px-6 md:px-12 mt-auto rounded-t-[2.5rem]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
             
             <div class="flex-1">
@@ -160,7 +354,7 @@
                 <div class="flex flex-col gap-4 text-sm tracking-widest uppercase text-off-white/70">
                     <a href="https://www.linkedin.com/in/julio-marquez-174522a7/" target="_blank" rel="noopener noreferrer" class="hover:text-off-white transition-colors">LinkedIn</a>
                     <a href="mailto:julio.l.marquez1@gmail.com" class="hover:text-off-white transition-colors">Email</a>
-                    <a href="#" class="hover:text-off-white transition-colors">Portfolio</a>
+                    <a href="javascript:void(0)" onclick="showView('experience')" class="hover:text-off-white transition-colors">Portfolio / Resume</a>
                 </div>
                 
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="group flex items-center gap-3 md:justify-end text-xs tracking-[0.2em] uppercase text-off-white/50 hover:text-off-white transition-colors">
@@ -178,5 +372,28 @@
         </div>
     </footer>
 
+    <script>
+        function showView(viewId) {
+            // 1. Hide all views
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.add('hidden');
+                view.classList.remove('opacity-100', 'translate-y-0');
+                view.classList.add('opacity-0', 'translate-y-4');
+            });
+
+            // 2. Show selected view
+            const activeView = document.getElementById('view-' + viewId);
+            activeView.classList.remove('hidden');
+            
+            // 3. Trigger transition animation
+            setTimeout(() => {
+                activeView.classList.remove('opacity-0', 'translate-y-4');
+                activeView.classList.add('opacity-100', 'translate-y-0');
+            }, 50); // slight delay to allow display:block to render before transitioning
+
+            // 4. Scroll to top of the page smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>

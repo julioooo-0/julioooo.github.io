@@ -166,7 +166,287 @@
                         <span class="text-muted group-open:rotate-180 transition-transform">+</span>
                     </summary>
                     <div class="mt-6 text-charcoal/80 leading-relaxed font-light">
-                        [Article Content for Agentic CS Playbook will go here. You can insert your HTML formatted text.]
+                        <style>
+  .playbook-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .playbook-container h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.2em;
+    color: #0a0a0a;
+    text-align: left;
+  }
+  .playbook-container h2 {
+    font-size: 1.6em;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    color: #0a0a0a;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 0.3em;
+    text-align: left;
+  }
+  .playbook-container h3 {
+    font-size: 1.2em;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+    color: #222;
+    text-align: left;
+  }
+  .playbook-container .subtitle {
+    font-size: 1.15em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-style: italic;
+    text-align: left;
+  }
+  .playbook-container .phase-label {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 1.5em;
+  }
+  .playbook-container .scenario-box,
+  .playbook-container .role-box,
+  .playbook-container .step-box,
+  .playbook-container .result-box {
+    background: #f7f7f5;
+    border-left: 4px solid #1a1a1a;
+    padding: 18px 22px;
+    margin: 18px 0;
+    border-radius: 4px;
+  }
+  .playbook-container .agents-grid,
+  .playbook-container .audit-grid,
+  .playbook-container .steps-grid {
+    display: grid;
+    gap: 18px;
+    margin: 20px 0;
+  }
+  .playbook-container .agents-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .playbook-container .audit-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .playbook-container .steps-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .playbook-container .agent-card,
+  .playbook-container .audit-card,
+  .playbook-container .step-card {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .playbook-container .agent-number,
+  .playbook-container .step-number {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .playbook-container .agent-card h4,
+  .playbook-container .step-card h4,
+  .playbook-container .audit-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    color: #0a0a0a;
+  }
+  .playbook-container .metrics-row {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .playbook-container .metric {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    padding: 20px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 6px;
+  }
+  .playbook-container .metric-value {
+    font-size: 2.4em;
+    font-weight: 700;
+    display: block;
+  }
+  .playbook-container .metric-label {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+  .playbook-container .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .playbook-container .comparison-col {
+    padding: 20px;
+    border-radius: 6px;
+  }
+  .playbook-container .old-model {
+    background: #fdf2f2;
+    border: 1px solid #f5c6c6;
+  }
+  .playbook-container .new-model {
+    background: #f0f9f4;
+    border: 1px solid #b8e0c4;
+  }
+  .playbook-container .comparison-col h4 {
+    margin-top: 0;
+    text-align: left;
+  }
+  .playbook-container .comparison-col ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+  }
+  .playbook-container .comparison-col li {
+    padding: 6px 0;
+  }
+  .playbook-container .cta {
+    margin-top: 2.5em;
+    padding: 24px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.05em;
+  }
+  @media (max-width: 600px) {
+    .playbook-container .comparison { grid-template-columns: 1fr; }
+    .playbook-container { padding: 24px 16px; }
+  }
+</style>
+
+<div class="playbook-container">
+
+  <p style="font-size: 0.85em; color: #888; letter-spacing: 0.15em; text-transform: uppercase; margin: 0;">Customer Success Playbook</p>
+  <h1>Agentic Customer Success</h1>
+  <p class="subtitle">From SaaS Plumbing to Strategic Orchestration</p>
+
+  <p>Customer success isn't about being a glorified personal assistant. It's about driving business outcomes. But you can't drive strategy when you're drowning in manual data entry. This playbook shows you how to use agentic customer success workflows to automate the "plumbing" and scale your impact.</p>
+
+  <h2>The Real-World Scenario</h2>
+  <div class="scenario-box">
+    <p style="margin: 0 0 8px 0;"><strong>Company:</strong> [Company X] — SaaS Infrastructure</p>
+    <p style="margin: 0;"><strong>The Trigger:</strong> A Tier-1 account sees a 30% drop in API calls over 7 days. Under the old model, the CSM might not notice for two weeks. In the Agentic model, the "Success Agents" handle it in 2 minutes.</p>
+  </div>
+
+  <span class="phase-label">PHASE 1</span>
+  <h2>The Audit</h2>
+  <p>You can't fix what you haven't mapped. Every role in the customer success org needs to identify where "cognitive friction" is killing their week.</p>
+
+  <div class="audit-grid">
+    <div class="audit-card">
+      <h4>For the CSM</h4>
+      <p style="margin: 0;">Audit your "Alt-Tab" frequency. How many screens do you open to prepare for one call? If it's more than three, you're a "data gatherer," not a strategist.</p>
+    </div>
+    <div class="audit-card">
+      <h4>For the VP / Executive</h4>
+      <p style="margin: 0;">Look at your Headcount-to-Revenue ratio. If you have to hire one CSM for every $2M in new ARR, your model is broken. Agentic customer success breaks this link.</p>
+    </div>
+  </div>
+
+  <span class="phase-label">PHASE 2</span>
+  <h2>Meet the New Success Agents</h2>
+  <p>Forget generic bots. We're deploying specialized roles that every customer success professional will recognize.</p>
+
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-number">01</div>
+      <h4>The Health Monitor</h4>
+      <p style="margin: 0;">Scans telemetry 24/7. Doesn't just flag a "red" health score, but also identifies the specific feature abandonment causing it.</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-number">02</div>
+      <h4>The Technical Architect</h4>
+      <p style="margin: 0;">Digs through documentation and Jira to solve technical problems quickly. No more "I'll have to get back to you" during calls.</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-number">03</div>
+      <h4>The Operations Lead</h4>
+      <p style="margin: 0;">Syncs notes to the CRM, updates REACH scores, and drafts the follow-up. Keeps the CRM clean so you don't have to.</p>
+    </div>
+  </div>
+
+  <span class="phase-label">PHASE 3</span>
+  <h2>The Execution Flow</h2>
+  <p>Here is how a customer success professional actually uses this in the real world.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">STEP 1 — DISCOVERY</div>
+      <p style="margin: 0;">The Health Monitor flags the 30% drop at [Company X]. It sends a Slack alert directly to the CSM.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">STEP 2 — INTEGRATION</div>
+      <p style="margin: 0;">The Technical Architect checks recent support tickets and finds a recurring bug in the latest API update. It drafts a summary of the fix.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">STEP 3 — COMPOSITION</div>
+      <p style="margin: 0;">The Operations Lead drafts an email to the customer's CTO explaining the drop, the cause, and the resolution. It also creates a "Risk" entry in Salesforce.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">STEP 4 — THE HUMAN PIVOT</div>
+      <p style="margin: 0;">The CSM reviews the draft. They add a personal note about the CTO's upcoming vacation. They hit "Send."</p>
+    </div>
+  </div>
+
+  <h3>The Result</h3>
+  <p>Proactive, not reactive — before the customer knew there was a problem.</p>
+  <div class="metrics-row">
+    <div class="metric">
+      <span class="metric-value">4 min</span>
+      <span class="metric-label">Total time spent by the CSM</span>
+    </div>
+    <div class="metric">
+      <span class="metric-value">2 hrs</span>
+      <span class="metric-label">Manual investigation time saved</span>
+    </div>
+  </div>
+
+  <span class="phase-label">SECTION 4</span>
+  <h2>Executive Adoption</h2>
+  <p>To make this stick, leadership must move away from Activity Metrics (emails sent) to Outcome Metrics (Time-to-Value). Reward the team for the agents they build, not just the tickets they close.</p>
+
+  <div class="comparison">
+    <div class="comparison-col old-model">
+      <h4>Old Model</h4>
+      <ul>
+        <li>✗ Activity Metrics</li>
+        <li>✗ Emails sent</li>
+        <li>✗ Tickets closed</li>
+        <li>✗ Headcount-to-Revenue ratio</li>
+      </ul>
+    </div>
+    <div class="comparison-col new-model">
+      <h4>Agentic Model</h4>
+      <ul>
+        <li>✓ Outcome Metrics</li>
+        <li>✓ Time-to-Value</li>
+        <li>✓ Agents built &amp; deployed</li>
+        <li>✓ Revenue-per-CSM growth</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta">
+    <strong>Ready to build your Success Squad?</strong> Start with Phase 1.
+  </div>
+
+</div>
                     </div>
                 </details>
                 <details class="group border-b border-muted/20 pb-6">
@@ -196,7 +476,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12 border-b border-muted/20 pb-16">
                 <div class="max-w-2xl">
                     <h2 class="font-serif text-6xl mb-4 tracking-tight">Julio Marquez</h2>
-                    <p class="font-sans text-muted tracking-[0.3em] uppercase text-xs mb-8">Denver, CO | Customer Success Executive</p>
+                    <p class="font-sans text-muted tracking-[0.3em] uppercase text-xs mb-8">Denver, CO | Customer Success Leader</p>
                     <p class="font-light text-xl leading-relaxed text-charcoal/90 italic">
                         "Strategic and visionary leader driving high-velocity organizational growth and operational excellence. Expert at architecting revenue engines and churn mitigation strategies."
                     </p>
